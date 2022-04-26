@@ -13,7 +13,9 @@ function NavBar() {
                     <Text bgGradient='linear(to-l,  brand.second, brand.main)'
                         bgClip='text'
                         fontSize='3xl'
-                        fontWeight='extrabold'>ProHouse</Text>
+                        fontWeight='extrabold'>
+                            PROHOUSE
+                            </Text>
                 </Link>
             </Box>
             <Spacer />

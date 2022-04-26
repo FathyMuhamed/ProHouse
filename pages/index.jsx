@@ -6,16 +6,15 @@ import Banner from './../components/Banner';
 
 
 export default function Home({ propsForSale, propsForRent }) {
-  console.log(propsForRent);
   return (
     <Box>
       <Banner
-        purpose="Rent a Home"
-        title1="Rental Homes For"
-        title2="Everyone"
-        desc1="Explore Apartments, villas,Homes"
-        desc2="and more."
-        buttonText="Explore Renting"
+        purpose="Search a Home"
+        title1="Find your Best Smart "
+        title2="Real Estate"
+        desc1="prohouse is a real estate solution "
+        desc2="that gives you the local scoop about homes."
+        buttonText="Explore Homes"
         linkName="/search"
         imgUrl="https://bayut-production.s3.eu-central-1.amazonaws.com/image/180732345/e7ecc7987d5c474783febb52cecd860b"
       />

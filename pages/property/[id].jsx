@@ -13,15 +13,12 @@ export default function propertyDetails({ propertyDetails: { price,contactName, 
             {photos && <ImageScrollBar data={photos} />}
             <Box w='full' p='6'>
                 <Flex paddingTop='2' alignItems='center'>
-                    <Flex alignItems='center' flexDirection="column">
-                        <Flex alignItems='center' >
-                            <Box color='green.400'>{isVerified && <GoVerified />}</Box>
+                    <Flex alignItems='center' flexDirection="row">
+                            <Text marginRight={2} color="brand.main" fontWeight='bold' fontSize='lg'>{contactName}</Text>
                             <Text fontWeight='bold' fontSize='2xl' color="brand.main">${millify(price)}</Text>
-                            <Text fontSize='sm' fontWeight="medium" color="brand.paragraph" >
+                            <Text p={1} fontSize='sm' fontWeight="medium" color="brand.paragraph" >
                                 {rentFrequency && `/${rentFrequency}`}
                             </Text>
-                        </Flex>
-                        <Text fontWeight='bold' fontSize='lg' color="brand.text">{contactName}</Text>
                     </Flex>
                     <Spacer />
                     <Avatar size='sm' src={agency?.logo?.url}></Avatar>

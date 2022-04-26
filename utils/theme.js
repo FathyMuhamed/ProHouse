@@ -10,4 +10,7 @@ export const theme = extendTheme({
             paragraph: "#a3a2b3",
         },
     },
+    fonts: {
+        body: 'Body Font Name, sans-serif',
+    },
 })
