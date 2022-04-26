@@ -1,28 +1,34 @@
 import { Box, Flex, Spacer, Text, Avatar } from '@chakra-ui/react';
-
-import { FaBed, FaBath } from 'react-icons/fa';
-import { BsGridFill } from 'react-icons/bs';
+import { BiBath } from 'react-icons/bi';
+import { MdBed } from 'react-icons/md';
 import { GoVerified } from 'react-icons/go';
 import millify from 'millify'
 
 import { fetchApi, baseUrl } from '../../utils/fetchApi'
 import ImageScrollBar from '../../components/ImageScrollBar';
 
-export default function propertyDetails({ propertyDetails: { price, rentFrequency, rooms, title, baths, area, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos } }) {
+export default function propertyDetails({ propertyDetails: { price,contactName, rentFrequency, rooms, title, baths, agency, isVerified, description, type, purpose, furnishingStatus, amenities, photos } }) {
     return (
         <Box maxWidth="1000px" margin="auto" p="4">
             {photos && <ImageScrollBar data={photos} />}
             <Box w='full' p='6'>
                 <Flex paddingTop='2' alignItems='center'>
-                    <Box paddingRight='3' color='green.400'>{isVerified && <GoVerified />}</Box>
-                    <Text fontWeight='bold' fontSize='lg'>
-                        AED {price} {rentFrequency && `/${rentFrequency}`}
-                    </Text>
+                    <Flex alignItems='center' flexDirection="column">
+                        <Flex alignItems='center' >
+                            <Box color='green.400'>{isVerified && <GoVerified />}</Box>
+                            <Text fontWeight='bold' fontSize='2xl' color="brand.main">${millify(price)}</Text>
+                            <Text fontSize='sm' fontWeight="medium" color="brand.paragraph" >
+                                {rentFrequency && `/${rentFrequency}`}
+                            </Text>
+                        </Flex>
+                        <Text fontWeight='bold' fontSize='lg' color="brand.text">{contactName}</Text>
+                    </Flex>
                     <Spacer />
                     <Avatar size='sm' src={agency?.logo?.url}></Avatar>
                 </Flex>
-                <Flex alignItems='center' p='1' justifyContent='space-between' w='250px' color='blue.400'>
-                    {rooms}<FaBed /> | {baths} <FaBath /> | {millify(area)} sqft <BsGridFill />
+                <Flex alignItems='center' gap={2} w='300px' color='brand.main'>
+                    <MdBed size="20px" /> <Text color="brand.paragraph">{rooms} Beds</Text>
+                    |<BiBath size="20px" /><Text color="brand.paragraph"> {baths} Bathrooms</Text>
                 </Flex>
             </Box>
             <Box marginTop='2'>
@@ -50,7 +56,7 @@ export default function propertyDetails({ propertyDetails: { price, rentFrequenc
                 <Flex flexWrap='wrap'>
                     {amenities?.map((item) => (
                         item?.amenities?.map((amenity) => (
-                            <Text key={amenity.text} fontWeight='bold' color='blue.400' fontSize='l' p='2' bg='gray.200' m='1' borderRadius='5'>
+                            <Text key={amenity.text} fontWeight='bold' color='brand.main' fontSize='l' p='2' bg='brand.color' m='1' borderRadius='5'>
                                 {amenity.text}
                             </Text>
                         ))

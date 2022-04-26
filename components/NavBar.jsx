@@ -7,10 +7,10 @@ import { FiKey } from 'react-icons/fi'
 
 function NavBar() {
     return (
-        <Flex p="2" borderBottom="1px" borderColor="gray.100">
+        <Flex p="2" borderBottom="1px" borderColor="gray.100" alignItems="center" >
             <Box fontSize="3xl" fontWeight="bold" color="blue.400" cursor="pointer" >
                 <Link href="/" paddingLef="2" passHref >
-                    <Text bgGradient='linear(to-l, blue.200, blue.600)'
+                    <Text bgGradient='linear(to-l,  brand.second, brand.main)'
                         bgClip='text'
                         fontSize='3xl'
                         fontWeight='extrabold'>ProHouse</Text>
@@ -19,7 +19,7 @@ function NavBar() {
             <Spacer />
             <Box>
                 <Menu>
-                    <MenuButton as={IconButton} icon={<FcMenu />} variant="outlined" color="red.400" />
+                    <MenuButton as={IconButton} icon={<FcMenu size="25px" />} variant="outlined" color="brand.main"  />
                     <MenuList>
                         <Link href="/" passHref>
                             <MenuItem icon={<FcHome />}>Home</MenuItem>

@@ -13,7 +13,7 @@ export default function Search({ properties }) {
         <Box>
             <Flex
                 cursor="pointer"
-                bg="gray.100"
+                bg="brand.color"
                 borderBottom="1px"
                 borderColor="gray.200"
                 p={2}
@@ -21,14 +21,17 @@ export default function Search({ properties }) {
                 justifyContent="center"
                 alignItems="center"
                 fontSize="bg"
+                borderRadius="md"
+                color="brand.main"
                 onClick={() => setSearchFilters(prev => !prev)}
             >
                 <Text>Search Property By Filters</Text>
                 <Icon as={BsFilter} paddingLeft={2} w={7} />
             </Flex>
             {searchFilters && <SearchFilters />}
-            <Text fontWeight="bold" p={4} fontSize="2xl">
-                Property {router.query.purpose}
+
+            <Text fontWeight="bold" marginLeft="25px" p={4} fontSize="2xl">
+            Search Properties {router.query.purpose}
             </Text>
             <Flex flexWrap="wrap" justifyContent="center">
                 {properties.map(property => <Property property={property} key={property.id} />)}
